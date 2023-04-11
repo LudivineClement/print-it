@@ -17,6 +17,7 @@ const slides = [
 	}
 ]
 
+
 const arrowleft = document.querySelector('.arrow_left')
 arrowleft.addEventListener ('click', function () {
 	console.log('clic gauche')
