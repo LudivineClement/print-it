@@ -17,16 +17,41 @@ const slides = [
 	}
 ]
 
-
+const imageBanner = document.querySelector('.banner-img');
+imageBanner.src = 'assets/images/slideshow/'+slides[0].image;
+let cpt = 0;
 const arrowleft = document.querySelector('.arrow_left')
 arrowleft.addEventListener ('click', function () {
-	console.log('clic gauche')
+	
+	if( cpt == 0) {
+		cpt = slides.length-1;
+		imageBanner.src = 'assets/images/slideshow/'+slides[cpt].image;
+	}
+	else {
+		imageBanner.src = 'assets/images/slideshow/'+slides[cpt--].image;
+	}	
+	console.log('taille du tableau',slides.length)
+	console.log('compteur',cpt)
+	console.log('image',slides[cpt].image)
 })
 
 const arrowright = document.querySelector('.arrow_right')
 arrowright.addEventListener ('click', function () {
-	console.log('clic droit')
+	console.log('taille du tableau',slides.length)
+	console.log('compteur',cpt)
+	console.log('image',slides[cpt].image)
+
+	if( cpt == slides.length) {
+		cpt = 0;
+		imageBanner.src = 'assets/images/slideshow/'+slides[cpt].image;
+	}
+	else {
+		imageBanner.src = 'assets/images/slideshow/'+slides[cpt++].image;
+	}
+	
 })
+
+
 
 
 
