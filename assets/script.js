@@ -43,7 +43,7 @@ let bullet = document.querySelector(".dots");
 //on fait une variable qui sélectionne la div avec la class dots
 
 for (let i = 0; i < slides.length; i++) {
-  //boucle pour initialiser le nombre de bullet à placer
+  //boucle pour initialiser le nombre de bullet à placer, on commencé à 0 et on va jusqu'à 4 ( slides.length), et donc on ajoute +1 à 0 jusqu'à arriver à 4, la boucle se termine
   let el = document.createElement("div");
   el.classList.add("dot");
   bullet.appendChild(el);
@@ -68,9 +68,10 @@ function changeDotSelected() {
   }
 }
 
-//-------------- changement d'images au clic
+//-------------- changement d'images et texte au clic
 
 const arrowleft = document.querySelector(".arrow_left");
+const text = document.getElementById("banner").querySelector("p");
 
 arrowleft.addEventListener("click", function () {
   if (cpt == 0) {
@@ -83,7 +84,8 @@ arrowleft.addEventListener("click", function () {
 
   imageBanner.src = "assets/images/slideshow/" + slides[cpt].image;
   // on indique la source à afficher selon le nombre du compteur.
-
+  text.innerHTML = slides[cpt].tagLine;
+  //ajout et modification du texte selon image. On prend la tagline dans le tableau qu'on injecte à la variable text grâce à innerHTML
   changeDotSelected();
   // on appelle la fonction pour que le changement de bullet fonctionne
 });
@@ -98,6 +100,7 @@ arrowright.addEventListener("click", function () {
   }
 
   imageBanner.src = "assets/images/slideshow/" + slides[cpt].image;
+  text.innerHTML = slides[cpt].tagLine;
 
   changeDotSelected();
 });
